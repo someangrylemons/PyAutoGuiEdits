@@ -4,8 +4,8 @@
 
 import ctypes
 import ctypes.wintypes
-import pyautogui
-from pyautogui import LEFT, MIDDLE, RIGHT
+import pyautoguiDGWEdits
+from pyautoguiDGWEdits import LEFT, MIDDLE, RIGHT
 
 import sys
 if sys.platform !=  'win32':
@@ -113,7 +113,7 @@ The *KB dictionaries in pyautoguiDGWEdit map a string that can be passed to keyD
 keyUp(), or press() into the code used for the OS-specific keyboard function.
 
 They should always be lowercase, and the same keys should be used across all OSes."""
-keyboardMapping = dict([(key, None) for key in pyautogui.KEY_NAMES])
+keyboardMapping = dict([(key, None) for key in pyautoguiDGWEdits.KEY_NAMES])
 keyboardMapping.update({
     'backspace': 0x08, # VK_BACK
     '\b': 0x08, # VK_BACK
@@ -282,7 +282,7 @@ def _keyDown(key):
     if key not in keyboardMapping or keyboardMapping[key] is None:
         return
 
-    needsShift = pyautogui.isShiftCharacter(key)
+    needsShift = pyautoguiDGWEdits.isShiftCharacter(key)
 
     """
     # OLD CODE: The new code relies on having all keys be loaded in keyboardMapping from the start.
@@ -323,7 +323,7 @@ def _keyUp(key):
     if key not in keyboardMapping or keyboardMapping[key] is None:
         return
 
-    needsShift = pyautogui.isShiftCharacter(key)
+    needsShift = pyautoguiDGWEdits.isShiftCharacter(key)
     """
     # OLD CODE: The new code relies on having all keys be loaded in keyboardMapping from the start.
     if key in keyboardMapping.keys():
